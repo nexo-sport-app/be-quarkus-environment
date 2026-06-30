@@ -1,0 +1,47 @@
+opencollection: 1.0.0
+
+info:
+  name: Nexo Environment
+config:
+  proxy:
+    inherit: true
+    config:
+      protocol: http
+      hostname: ""
+      port: ""
+      auth:
+        username: ""
+        password: ""
+      bypassProxy: ""
+
+request:
+  auth:
+    type: oauth2
+    flow: resource_owner_password_credentials
+    accessTokenUrl: http://localhost:9090/realms/nexo/protocol/openid-connect/token
+    credentials:
+      clientId: nexo-microservice-client
+      clientSecret: F7inmbxZULaikLDhU1JBL6PTWz4CZf85
+      placement: basic_auth_header
+    resourceOwner:
+      username: mario.rossi
+      password: password
+    tokenConfig:
+      id: credentials
+      placement:
+        header: Bearer
+      source: access_token
+    settings:
+      autoFetchToken: true
+      autoRefreshToken: true
+  variables:
+    - name: HOST
+      value: http://localhost:8080{{PATH}}
+    - name: PATH
+      value: /nexo-env
+bundled: false
+extensions:
+  bruno:
+    ignore:
+      - node_modules
+      - .git
