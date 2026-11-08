@@ -44,7 +44,7 @@ public record TranscodeCommand(
         private String fromValue;
         private String toDomain = TranscodingFacade.DEFAULT_DOMAIN;
         private String toLanguage = TranscodingFacade.DEFAULT_LANGUAGE;
-        private Date date = Date.today();
+        private Date date;
 
         public Builder list(final String list) {
             this.list = list;

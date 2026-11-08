@@ -92,23 +92,6 @@ class TranscodingFacadeImpl implements TranscodingFacade {
         return objectList;
     }
 
-    /**
-     * {@inheritDoc}
-     * @param <T> {@inheritDoc}
-     * @param list {@inheritDoc}
-     * @param handler {@inheritDoc}
-     * @return {@inheritDoc}
-     */
-    @Override
-    @CacheResult(cacheName = "env.transcoding.list")
-    public <T> List<T> getList(
-            @CacheKey
-            final String list,
-            final ListHandler<T> handler
-    ) {
-        return getList(list, handler, Date.today());
-    }
-
     // -----------------------------------------------------------------------------------------------------------------
 
     /**
@@ -116,12 +99,16 @@ class TranscodingFacadeImpl implements TranscodingFacade {
      * @param command {@inheritDoc}
      * @return {@inheritDoc}
      * @throws TranscodingException {@inheritDoc}
+     * @throws IllegalArgumentException {@inheritDoc}
      */
     @Override
     @CacheResult(cacheName = "env.transcoding.transcode")
     public String transcode(final TranscodeCommand command) throws TranscodingException {
-        /* set reference date */
-        final Date referenceDate = command.date() == null ? Date.today() : command.date();
+        /* the reference date is always supplied by the service, never defaulted here */
+        if (command.date() == null) {
+            throw new IllegalArgumentException("reference date required");
+        }
+        final Date referenceDate = command.date();
         logger.debug("Set reference date to {}", referenceDate);
 
         /* retrieve parent id */

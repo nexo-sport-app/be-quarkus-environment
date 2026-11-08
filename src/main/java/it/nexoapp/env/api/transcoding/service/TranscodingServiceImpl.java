@@ -52,7 +52,7 @@ class TranscodingServiceImpl implements TranscodingService {
         final Date effectiveDate;
         if (referenceDate == null) {
             logger.debug("No reference date specified, using today");
-            effectiveDate = today();
+            effectiveDate = todayInZone();
         } else {
             effectiveDate = referenceDate;
         }
@@ -76,7 +76,7 @@ class TranscodingServiceImpl implements TranscodingService {
     @Override
     public TranscodeResponse transcode(final TranscodeCommand command) throws TranscodingException {
         final TranscodeCommand dated = command.date() == null
-                ? withDate(command, today())
+                ? withDate(command, todayInZone())
                 : command;
         final String transcode = transcodingFacade.transcode(dated);
         return new TranscodeResponse(transcode);
@@ -92,7 +92,7 @@ class TranscodingServiceImpl implements TranscodingService {
      *
      * @return today's date in the configured zone
      */
-    private Date today() {
+    private Date todayInZone() {
         final ZoneId zone = ZoneId.of(config.transcoding().zone());
         return Date.of(LocalDate.now(clock.withZone(zone)));
     }

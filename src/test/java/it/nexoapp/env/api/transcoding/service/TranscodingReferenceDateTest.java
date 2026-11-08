@@ -171,16 +171,6 @@ class TranscodingReferenceDateTest {
          * {@inheritDoc}
          */
         @Override
-        public <T> List<T> getList(final String list, final ListHandler<T> handler) {
-            throw new UnsupportedOperationException();
-        }
-
-        // -------------------------------------------------------------------------------------------------------------
-
-        /**
-         * {@inheritDoc}
-         */
-        @Override
         public String transcode(final TranscodeCommand command) {
             this.command = command;
             return "value";

@@ -1,6 +1,7 @@
 package it.nexoapp.env.api.transcoding;
 
 import it.nexoapp.common.domain.Date;
+import it.nexoapp.common.security.AllowUnlinked;
 import it.nexoapp.env.infra.transcoding.dto.TranscodeCommand;
 import it.nexoapp.env.api.transcoding.dto.ListType;
 import it.nexoapp.env.api.transcoding.service.TranscodingService;
@@ -9,6 +10,11 @@ import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 import lombok.RequiredArgsConstructor;
 
+/**
+ * Global reference data (lists and transcodings), readable by any authenticated caller even when not linked to an
+ * association.
+ */
+@AllowUnlinked
 @Path("/transcoding")
 @RequiredArgsConstructor
 public class TranscodingResource {

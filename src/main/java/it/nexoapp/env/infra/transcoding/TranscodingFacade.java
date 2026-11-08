@@ -50,27 +50,13 @@ public interface TranscodingFacade {
     );
 
     /**
-     * Retrieves a list of elements of type T from the specified list name using the given handler to handle the data.
-     *
-     * @param <T> The type of elements in the list to be retrieved.
-     * @param list The name of the list to retrieve data from.
-     * @param handler The handler to process and retrieve the elements of type T from the list.
-     * @return A list of elements of type T retrieved and processed using the provided handler.
-     */
-    <T> List<T> getList(
-            @NotEmpty
-            final String list,
-            @NotNull
-            final ListHandler<T> handler
-    );
-
-    /**
      * Transcode a value from one domain and language to another within a specified list category.
      *
-     * @param command The TranscodeCommand containing the source value, target parameters, and additional context for the transcoding operation.
+     * @param command The TranscodeCommand containing the source value, target parameters, and additional context for the transcoding operation; its date is required.
      * @return A string representing the transcoded value.
      * @throws FromTranscodeNotFoundException If no matching transcoding is found for the source value.
      * @throws ToTranscodeNotFoundException If no matching transcoding is found for the target value.
+     * @throws IllegalArgumentException If the command carries no reference date.
      */
     String transcode(@Valid @NotNull final TranscodeCommand command) throws TranscodingException;
 
