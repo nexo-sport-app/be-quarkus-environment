@@ -4,7 +4,10 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 
+import java.util.Set;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * Characterization test pinning the JSON contract of the transcoding list items.
@@ -83,6 +86,21 @@ class ListItemJsonContractTest {
                 "{\"code\":\"015146\",\"name\":\"Milano\",\"zipCode\":\"20121\",\"belfiore\":\"F205\"}",
                 mapper.writeValueAsString(municipality)
         );
+    }
+
+    // ------------------------------------------------------------------------
+
+    /**
+     * All list items are records and the only permitted subclasses of the sealed interface.
+     */
+    @Test
+    void listItemsAreRecordsPermittedBySealedInterface() {
+        final Class<?>[] items = {State.class, Region.class, Province.class, Municipality.class};
+        assertTrue(ListItem.class.isSealed());
+        assertEquals(Set.of(items), Set.of(ListItem.class.getPermittedSubclasses()));
+        for (final Class<?> item : items) {
+            assertTrue(item.isRecord(), item.getSimpleName() + " must be a record");
+        }
     }
 
 }

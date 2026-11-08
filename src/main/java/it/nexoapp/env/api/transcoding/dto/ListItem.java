@@ -1,11 +1,11 @@
 package it.nexoapp.env.api.transcoding.dto;
 
-import java.io.Serial;
 import java.io.Serializable;
 
-public abstract class ListItem implements Serializable {
-
-    @Serial
-    private static final long serialVersionUID = 7149341615297767276L;
+/**
+ * Marker for the reference list items returned by the transcoding list endpoint.
+ * Only the records declared here can implement it.
+ */
+public sealed interface ListItem extends Serializable permits State, Region, Province, Municipality {
 
 }
