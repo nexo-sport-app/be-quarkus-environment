@@ -48,7 +48,7 @@ class MunicipalityListHandler implements ListHandler<Municipality> {
             /* zipCode */
             if (TranscodingUtils.checkItem(item, TranscodingConstant.ZIPCODE_DOMAIN, TranscodingFacade.DEFAULT_LANGUAGE)) {
                 logger.trace("Setting 'zipCode'={}", item.value());
-                builder.belfiore(item.value());
+                builder.zipCode(item.value());
             }
 
             /* belfiore */
