@@ -23,6 +23,9 @@ class TranscodingServiceImpl implements TranscodingService {
     /* - facade - */
     private final TranscodingFacade transcodingFacade;
 
+    /* - registry - */
+    private final ListHandlerRegistry registry;
+
     @Override
     @SuppressWarnings("unchecked")
     public <T> List<T> list(final ListType type, Date referenceDate) {
@@ -33,7 +36,7 @@ class TranscodingServiceImpl implements TranscodingService {
 
         return (List<T>) transcodingFacade.getList(
                 type.name().toLowerCase(),
-                type.getHandler(),
+                registry.handlerFor(type),
                 referenceDate
         );
     }

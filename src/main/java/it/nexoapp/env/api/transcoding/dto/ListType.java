@@ -1,25 +1,27 @@
 package it.nexoapp.env.api.transcoding.dto;
 
-import it.nexoapp.common.infra.transcoding.dto.ListHandler;
-import it.nexoapp.env.api.transcoding.service.MunicipalityListHandler;
-import it.nexoapp.env.api.transcoding.service.ProvinceListHandler;
-import it.nexoapp.env.api.transcoding.service.RegionListHandler;
-import it.nexoapp.env.api.transcoding.service.StateListHandler;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
+/**
+ * The reference lists exposed by the transcoding list endpoint.
+ */
 @Getter
 @RequiredArgsConstructor
 public enum ListType {
 
-    STATE(new StateListHandler(), State.class),
-    REGION(new RegionListHandler(), Region.class),
-    PROVINCE(new ProvinceListHandler(), Province.class),
-    MUNICIPALITY(new MunicipalityListHandler(), Municipality.class),
+    /** The list of states. */
+    STATE(State.class),
+    /** The list of regions. */
+    REGION(Region.class),
+    /** The list of provinces. */
+    PROVINCE(Province.class),
+    /** The list of municipalities. */
+    MUNICIPALITY(Municipality.class),
 
     ;
 
-    private final ListHandler<?> handler;
+    /** The item type returned for this list. */
     private final Class<? extends ListItem> item;
 
 }
