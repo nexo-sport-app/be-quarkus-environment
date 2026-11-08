@@ -1,9 +1,9 @@
 package it.nexoapp.env.api.transcoding.service;
 
 import it.nexoapp.common.constant.Language;
-import it.nexoapp.common.infra.transcoding.dto.ListHandler;
-import it.nexoapp.common.infra.transcoding.dto.TranscodingItem;
-import it.nexoapp.common.infra.transcoding.utils.TranscodingUtils;
+import it.nexoapp.env.infra.transcoding.dto.ListHandler;
+import it.nexoapp.env.infra.transcoding.dto.TranscodingItem;
+import it.nexoapp.env.infra.transcoding.utils.TranscodingUtils;
 import it.nexoapp.env.api.transcoding.dto.Province;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,7 +14,7 @@ import java.util.List;
  * A handler implementation for processing a list of {@link TranscodingItem} objects
  * and converting them into a unified {@link Province} object.
  */
-public class ProvinceListHandler implements ListHandler<Province> {
+class ProvinceListHandler implements ListHandler<Province> {
 
     /* - logger - */
     private static final Logger logger = LoggerFactory.getLogger(ProvinceListHandler.class);

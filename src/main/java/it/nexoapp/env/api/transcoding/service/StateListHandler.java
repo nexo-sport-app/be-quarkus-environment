@@ -1,10 +1,10 @@
 package it.nexoapp.env.api.transcoding.service;
 
 import it.nexoapp.common.constant.Language;
-import it.nexoapp.common.infra.transcoding.TranscodingFacade;
-import it.nexoapp.common.infra.transcoding.dto.ListHandler;
-import it.nexoapp.common.infra.transcoding.dto.TranscodingItem;
-import it.nexoapp.common.infra.transcoding.utils.TranscodingUtils;
+import it.nexoapp.env.infra.transcoding.TranscodingFacade;
+import it.nexoapp.env.infra.transcoding.dto.ListHandler;
+import it.nexoapp.env.infra.transcoding.dto.TranscodingItem;
+import it.nexoapp.env.infra.transcoding.utils.TranscodingUtils;
 import it.nexoapp.env.api.transcoding.dto.State;
 import it.nexoapp.env.api.transcoding.utils.TranscodingConstant;
 import org.slf4j.Logger;
@@ -16,7 +16,7 @@ import java.util.List;
  * A handler implementation for processing a list of {@link TranscodingItem} objects
  * and converting them into a unified {@link State} object.
  */
-public class StateListHandler implements ListHandler<State> {
+class StateListHandler implements ListHandler<State> {
 
     /* - logger - */
     private static final Logger logger = LoggerFactory.getLogger(StateListHandler.class);

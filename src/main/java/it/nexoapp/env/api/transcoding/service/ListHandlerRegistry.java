@@ -1,6 +1,6 @@
 package it.nexoapp.env.api.transcoding.service;
 
-import it.nexoapp.common.infra.transcoding.dto.ListHandler;
+import it.nexoapp.env.infra.transcoding.dto.ListHandler;
 import it.nexoapp.env.api.transcoding.dto.ListItem;
 import it.nexoapp.env.api.transcoding.dto.ListType;
 import jakarta.enterprise.context.ApplicationScoped;

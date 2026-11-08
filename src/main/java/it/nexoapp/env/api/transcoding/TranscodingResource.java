@@ -1,7 +1,7 @@
 package it.nexoapp.env.api.transcoding;
 
 import it.nexoapp.common.domain.Date;
-import it.nexoapp.common.infra.transcoding.dto.TranscodeCommand;
+import it.nexoapp.env.infra.transcoding.dto.TranscodeCommand;
 import it.nexoapp.env.api.transcoding.dto.ListType;
 import it.nexoapp.env.api.transcoding.service.TranscodingService;
 import jakarta.ws.rs.*;
