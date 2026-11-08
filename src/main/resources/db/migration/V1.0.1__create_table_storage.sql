@@ -1,5 +1,5 @@
 CREATE TABLE storage (
-     id           UUID DEFAULT uuid_generate_v4() NOT NULL,
+     id           UUID DEFAULT gen_random_uuid() NOT NULL,
      type         TEXT NOT NULL,
      "key"        TEXT NOT NULL,
      content_type TEXT NOT NULL,

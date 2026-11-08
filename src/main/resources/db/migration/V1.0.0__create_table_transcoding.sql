@@ -1,5 +1,5 @@
 CREATE TABLE transcoding (
-     "id"        UUID DEFAULT uuid_generate_v4() NOT NULL,
+     "id"        UUID DEFAULT gen_random_uuid() NOT NULL,
      list        TEXT NOT NULL,
      "domain"    TEXT NOT NULL,
      "language"  TEXT NOT NULL,
