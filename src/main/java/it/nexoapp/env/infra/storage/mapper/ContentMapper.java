@@ -10,6 +10,25 @@ import java.io.Serializable;
  */
 public interface ContentMapper {
 
+    /**
+     * Provides the mapper for the {@code application/json} content type.
+     *
+     * @return the JSON content mapper
+     */
+    static ContentMapper json() {
+        return new ApplicationJsonContentMapper();
+    }
+
+    // -----------------------------------------------------------------------------------------------------------------
+
+    /**
+     * Provides the mapper for the {@code text/plain} content type.
+     *
+     * @return the plain text content mapper
+     */
+    static ContentMapper text() {
+        return new TextPlainContentMapper();
+    }
 
     // -----------------------------------------------------------------------------------------------------------------
 

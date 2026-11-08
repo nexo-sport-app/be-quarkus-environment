@@ -2,7 +2,7 @@ package it.nexoapp.env.api.transcoding.utils;
 
 import it.nexoapp.common.exception.IllegalInstantiationException;
 
-public class TranscodingConstant {
+public final class TranscodingConstant {
 
     private TranscodingConstant() {
         throw new IllegalInstantiationException();

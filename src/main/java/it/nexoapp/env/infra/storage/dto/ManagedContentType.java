@@ -1,8 +1,6 @@
 package it.nexoapp.env.infra.storage.dto;
 
-import it.nexoapp.env.infra.storage.mapper.ApplicationJsonContentMapper;
 import it.nexoapp.env.infra.storage.mapper.ContentMapper;
-import it.nexoapp.env.infra.storage.mapper.TextPlainContentMapper;
 import jakarta.ws.rs.core.MediaType;
 import lombok.RequiredArgsConstructor;
 import org.apache.commons.lang3.StringUtils;
@@ -22,8 +20,8 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public enum ManagedContentType {
 
-    APPLICATION_JSON(MediaType.APPLICATION_JSON, new ApplicationJsonContentMapper()),
-    TEXT_PLAIN(MediaType.TEXT_PLAIN, new TextPlainContentMapper()),
+    APPLICATION_JSON(MediaType.APPLICATION_JSON, ContentMapper.json()),
+    TEXT_PLAIN(MediaType.TEXT_PLAIN, ContentMapper.text()),
     ;
 
     /* - constants - */

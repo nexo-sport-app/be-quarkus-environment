@@ -4,7 +4,7 @@ import it.nexoapp.common.exception.IllegalInstantiationException;
 import it.nexoapp.env.infra.transcoding.dto.TranscodingItem;
 import org.apache.commons.lang3.Strings;
 
-public class TranscodingUtils {
+public final class TranscodingUtils {
 
     private TranscodingUtils() {
         throw new IllegalInstantiationException();

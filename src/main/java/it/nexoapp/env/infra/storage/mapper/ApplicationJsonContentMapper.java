@@ -9,7 +9,7 @@ import java.io.Serializable;
 /**
  * {@link ContentMapper} implementation that uses the application/json content type.
  */
-public class ApplicationJsonContentMapper implements ContentMapper {
+class ApplicationJsonContentMapper implements ContentMapper {
 
     private static final Logger logger = LoggerFactory.getLogger(ApplicationJsonContentMapper.class);
 

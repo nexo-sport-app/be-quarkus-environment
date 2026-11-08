@@ -19,8 +19,20 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class TranscodingResource {
 
+    /* - service - */
     private final TranscodingService service;
 
+    // -----------------------------------------------------------------------------------------------------------------
+
+    /**
+     * Returns the items of a reference list valid at the given date.
+     * <p>
+     * An unknown list name is a path parameter conversion failure and answers 404.
+     *
+     * @param listType      the requested list
+     * @param referenceDate the reference date, or {@code null} for today in the configured zone
+     * @return the list items
+     */
     @GET
     @Path("/list/{listName}")
     @Produces(MediaType.APPLICATION_JSON)
@@ -35,6 +47,21 @@ public class TranscodingResource {
                 .build();
     }
 
+    // -----------------------------------------------------------------------------------------------------------------
+
+    /**
+     * Transcodes a value from one domain and language to another.
+     *
+     * @param list          the list the value belongs to
+     * @param fromDomain    the source domain
+     * @param fromLanguage  the source language
+     * @param fromValue     the value to transcode
+     * @param toDomain      the target domain
+     * @param toLanguage    the target language
+     * @param referenceDate the reference date, or {@code null} for today in the configured zone
+     * @return the transcoded value
+     * @throws Exception when the transcoding fails
+     */
     @GET
     @Path("/transcode")
     @Produces(MediaType.APPLICATION_JSON)

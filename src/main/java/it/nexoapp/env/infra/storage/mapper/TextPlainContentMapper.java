@@ -10,7 +10,7 @@ import java.io.Serializable;
 /**
  * {@link ContentMapper} implementation that uses the text/plain content type.
  */
-public class TextPlainContentMapper implements ContentMapper {
+class TextPlainContentMapper implements ContentMapper {
 
     private static final Logger logger = LoggerFactory.getLogger(TextPlainContentMapper.class);
 
